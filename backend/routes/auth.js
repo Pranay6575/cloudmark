@@ -33,7 +33,7 @@ router.post("/", [
           res.json(user)
       }
         catch(err){
-          console.log(err.message);
+         
           res.status(500).send('Error has occured')
         }
     }
