@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const JWT_secret = 'Thisisjwttoken@thing';
-// Create a User using POST "/api/auth/createuser"
+// ROUTE-1 Create a User using POST "/api/auth/createuser"
 router.post("/createuser", [
   body('name', "Enter a valid Name").isLength({ min: 3 }),
   body('email', "Enter a valid Email").isEmail(),
@@ -52,7 +52,7 @@ router.post("/createuser", [
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Authenticate a User using POST "/api/auth/login", no login req.
+// ROUTE-2 Authenticate a User using POST "/api/auth/login", no login req.
 router.post('/login', [
   body('email', "Enter a valid Email").isEmail(),
   body('password', "Password shouldn't be blank ").exists()
