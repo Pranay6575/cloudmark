@@ -4,7 +4,7 @@ const { body, validationResult } = require("express-validator");
 var fetchuser = require("../middleware/fetchuser");
 const Note = require("../models/Note");
 
-// ROUTE-1 Get all notes using GET "/api/notes/fetchAllnotes"
+// ROUTE-1 Get all notes using GET "/api/notes/fetchAllnotes"  Login Required
 router.get("/fetchAllnotes", fetchuser, async (req, res) => {
   try {
     const notes = await Note.find({ user: req.user.id });
@@ -15,7 +15,7 @@ router.get("/fetchAllnotes", fetchuser, async (req, res) => {
   }
 });
 
-// ROUTE-2 Add new note using POST "/api/notes/addnote"
+// ROUTE-2 Add new note using POST "/api/notes/addnote" Login Required
 router.post(
   "/addnote",
   fetchuser,
@@ -48,5 +48,16 @@ router.post(
     }
   }
 );
+
+
+// ROUTE-3 Update an existing notes using PUT"/api/notes/fetchAllnotes"  Login Required
+router.put("/updatenotes/:id", fetchuser, async (req, res) => {
+const{title, description, tag} = req.body;
+     const newNote = {};
+     if(title){newNote.title = title};
+     if(description){newNote.description = description};
+     if(tag){newNote.tag = tag};
+
+      });
 
 module.exports = router;
