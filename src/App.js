@@ -7,6 +7,7 @@ import About from "./components/About";
 function App() {
   return (
     <>
+    <noteState>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
+    </noteState>
     </>
   );
 }
