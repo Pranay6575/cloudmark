@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import contextNote from '../context/notes/ContextNote';
 
 const About = () => {
   
